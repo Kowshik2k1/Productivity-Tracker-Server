@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import { PORT, MONGO_URI } from "./src/config/db.js";
 import { app } from "./app.js";
 import testRoutes from "./src/routes/testRoutes.js";
+import authRoutes from "./src/routes/authRoutes.js";
 
 app.use(cors());
 
@@ -16,3 +17,4 @@ mongoose.connect(MONGO_URI)
 .catch((err) => console.error('MongoDB connection error:', err));
 
 app.use('/api/test', testRoutes);
+app.use("/api/auth", authRoutes);
